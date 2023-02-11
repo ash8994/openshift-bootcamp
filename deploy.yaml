@@ -1,0 +1,29 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: demo-bootcamp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-bootcamp
+  template:
+    metadata:
+      labels:
+        app: demo-bootcamp
+    spec:
+      containers:
+        - name: demo-bootcamp
+          image: demo-bootcamp-image:latest
+          ports:
+            - name: http
+              containerPort: 8081
+              protocol: TCP
+          resources:
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
+          env:
+            - name: JAVA_ARGS
+              value: "hola,prueba"
+---
