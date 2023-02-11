@@ -10,7 +10,7 @@ metadata:
   projectType: springboot
   language: Java
 parent:
-  id: java
+  id: java-springboot
   registryUrl: 'https://registry.devfile.io'
 components:
   - name: image-build
