@@ -19,7 +19,7 @@ public class SecretRest {
         return System.getenv(secret);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "file")
+    @RequestMapping(method = RequestMethod.GET, value = "SecretInVolume")
     public JsonNode getFile(@RequestParam String path) throws IOException {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         return mapper.readTree(new String(Files.readAllBytes(Paths.get(path))));
