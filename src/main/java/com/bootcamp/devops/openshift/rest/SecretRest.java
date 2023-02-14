@@ -12,11 +12,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 @RestController
-public class ConfigMapRest {
+public class SecretRest {
 
-    @RequestMapping(method = RequestMethod.GET, value = "data")
-    public String getData(@RequestParam String data) {
-        return System.getenv(data);
+    @RequestMapping(method = RequestMethod.GET, value = "secret")
+    public String getSecret(@RequestParam String secret) {
+        return System.getenv(secret);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "file")
@@ -24,6 +24,4 @@ public class ConfigMapRest {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         return mapper.readTree(new String(Files.readAllBytes(Paths.get(path))));
     }
-
-
 }
